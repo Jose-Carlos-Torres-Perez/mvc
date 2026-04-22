@@ -20,7 +20,11 @@ class View
     public static function render(string $vista, array $datos = []): void
     {
         // TODO 10: tu código aquí
-        ???
+        extract($datos);
+        require_once __DIR__."views/layout/header.php";
+        require_once __DIR__."views/{$vista}.php";
+        require_once __DIR__."views/layout/footer.php";
+        
     }
 
     /** Escapa texto para mostrarlo seguro en HTML */

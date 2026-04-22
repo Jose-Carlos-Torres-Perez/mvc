@@ -24,21 +24,74 @@ class Libro
     //   Cien años de soledad (García Márquez), Cosmos (Sagan),
     //   Sapiens (Harari), Clean Code (Martin), El principito (Saint-Exupéry)
     private static array $catalogo = [
-        // TODO 11: agrega tus 5+ libros aquí
-    ];
+    [
+        'id' => 1,
+        'titulo' => 'Cien años de soledad',
+        'autor' => 'Gabriel García Márquez',
+        'genero' => 'Novela',
+        'anio' => 1967,
+        'precio' => 45000,
+        'descripcion' => 'Historia de la familia Buendía en el mítico pueblo de Macondo.',
+        'color' => '#16a085'
+    ],
+    [
+        'id' => 2,
+        'titulo' => 'El origen de las especies',
+        'autor' => 'Charles Darwin',
+        'genero' => 'Ciencia',
+        'anio' => 1859,
+        'precio' => 38000,
+        'descripcion' => 'Obra fundamental sobre la teoría de la evolución por selección natural.',
+        'color' => '#2980b9'
+    ],
+    [
+        'id' => 3,
+        'titulo' => 'Sapiens: De animales a dioses',
+        'autor' => 'Yuval Noah Harari',
+        'genero' => 'Historia',
+        'anio' => 2011,
+        'precio' => 52000,
+        'descripcion' => 'Un recorrido por la historia de la humanidad desde sus orígenes.',
+        'color' => '#8e44ad'
+    ],
+    [
+        'id' => 4,
+        'titulo' => 'Clean Code',
+        'autor' => 'Robert C. Martin',
+        'genero' => 'Tecnología',
+        'anio' => 2008,
+        'precio' => 67000,
+        'descripcion' => 'Guía práctica para escribir código limpio, mantenible y eficiente.',
+        'color' => '#27ae60'
+    ],
+    [
+        'id' => 5,
+        'titulo' => '1984',
+        'autor' => 'George Orwell',
+        'genero' => 'Novela',
+        'anio' => 1949,
+        'precio' => 40000,
+        'descripcion' => 'Distopía sobre un régimen totalitario que controla todos los aspectos de la vida.',
+        'color' => '#c0392b'
+    ]
+];
 
     // TODO 12: Implementa todos() — retorna todo el array $catalogo
     public static function todos(): array
     {
-        // tu código aquí
+         return self::$catalogo;
     }
 
     // TODO 13: Implementa buscar($id) — retorna el libro con ese id,
     //          o null si no existe.
     //          Recorre $catalogo con foreach y compara $libro['id'] === $id
-    public static function buscar(int $id): ?array
+    public static function buscar(int $id): array
     {
-        // tu código aquí
+        foreach ($catalogo as $libro) {
+            if ($libro["id"]===$id){
+                
+            }
+        }
     }
 
     // TODO 14: Implementa porGenero($genero) — retorna solo los libros
