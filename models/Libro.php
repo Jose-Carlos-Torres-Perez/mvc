@@ -85,13 +85,16 @@ class Libro
     // TODO 13: Implementa buscar($id) — retorna el libro con ese id,
     //          o null si no existe.
     //          Recorre $catalogo con foreach y compara $libro['id'] === $id
-    public static function buscar(int $id): array
+    public static function buscar(int $id): ?array
     {
-        foreach ($catalogo as $libro) {
+        foreach (self::$catalogo as $libro) {
+
             if ($libro["id"]===$id){
-                
+                return $libro;
             }
+            
         }
+        return null;
     }
 
     // TODO 14: Implementa porGenero($genero) — retorna solo los libros
@@ -99,14 +102,22 @@ class Libro
     //          Pista: array_filter() + array_values()
     public static function porGenero(string $genero): array
     {
-        // tu código aquí
+        
+            $valor =array_filter(self ::$catalogo, function ($libro)  use ($genero){
+                return $libro['genero'===$genero];
+            }
+            
+            );
+            return array_values($valor          
+            );
     }
 
     // TODO 15: Implementa generos() — retorna la lista de géneros únicos.
     //          Pista: array_unique() + array_column()
     public static function generos(): array
     {
-        // tu código aquí
+        $l_generos =array_unique(array_column(self::$catalogo, 'genero'));
+        return $l_generos;
     }
 
     // Helper: formatea precio como "$ 45.000"
