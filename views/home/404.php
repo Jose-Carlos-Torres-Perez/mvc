@@ -9,4 +9,6 @@
 
 <div class="text-center py-5">
     <!-- TODO 27: tu contenido aquí -->
+     <h4>🔍404</h4>
+     <a href="index.php"><button>volver al inicio</button></a>
 </div>

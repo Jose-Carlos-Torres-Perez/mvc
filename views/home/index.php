@@ -13,5 +13,12 @@
 -->
 
 <h1><?= e($titulo) ?></h1>
-
+<p>descrpcion</p>
+<a href="?c=libro&a=index"><button>ver catalogo</button></a>
 <!-- TODO 26: el resto de tu contenido aquí -->
+<pre>
+Navegador → index.php?c=home&a=index
+Router    → HomeController::index()
+Controller→ View::render('home/index', ['titulo'=>'<?= e($titulo) ?>'])
+View      → HTML al navegador ✓
+</pre>

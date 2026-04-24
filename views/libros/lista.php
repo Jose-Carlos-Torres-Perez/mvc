@@ -6,7 +6,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="fw-bold mb-0"><?= e($titulo) ?></h1>
     <!-- TODO 28: muestra count($libros) y el texto "libro/s" -->
-    ???
+    <?=  count($libros) . "  libro/s"?>
 </div>
 
 <!-- TODO 29: Botones de filtro por género.
@@ -17,6 +17,8 @@
      Pista: usa urlencode($g) en el href -->
 <div class="mb-4 d-flex gap-2 flex-wrap">
     <!-- TODO 29: tus botones de filtro aquí -->
+     <a href="?c=libro&a=index"><button>Todos</button></a>
+     <a href="??c=libro&a=genero&g={género}"><button>Generos</button></a>
 </div>
 
 <!-- TODO 30: Si $libros está vacío, muestra un mensaje de alerta.

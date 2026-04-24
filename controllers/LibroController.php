@@ -21,7 +21,9 @@ class LibroController
     //      'titulo', 'libros' y 'generos'
     public function index(): void
     {
-        // tu código aquí
+        $libros = Libro::todos();
+        $generos = Libro::generos();
+        View::render('libros/lista', ['titulo'=>'todos los libros', 'libros'=>$libros , 'generos'=>$generos]);
     }
 
     // TODO 19: Implementa show().
@@ -31,7 +33,15 @@ class LibroController
     //   4. Si existe → View::render('libros/show', [...]) con 'titulo' y 'libro'
     public function show(): void
     {
-        // tu código aquí
+        $id=(int)( $_GET['id'] ?? 0);
+        $libro= Libro::buscar($id);
+        if ($libro === null){
+            header("Location: index.php?c=home&a=notFound");
+            exit;
+        }
+        else{
+            View::render('libros/show', ['titulos'=> $libro['titulo'],'libro'=>$libro]);
+        }
     }
 
     // TODO 20: Implementa genero().
@@ -42,6 +52,19 @@ class LibroController
     //      'titulo', 'libros', 'generos' y 'generoActivo'
     public function genero(): void
     {
-        // tu código aquí
+        $genero=$_GET['g'] ?? '';
+        $libros=($genero!=='')? Libro::porGenero($genero):Libro::todos();
+        
+
+        $generos =Libro::generos();
+
+        View::render('libros/lista', [
+            'titulo'=>$genero,
+            'libros'=>$libros,
+            'generos'=>$generos,
+            'generoActivo'=>$genero
+
+        ]);
+
     }
 }

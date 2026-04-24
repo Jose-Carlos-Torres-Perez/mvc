@@ -14,8 +14,8 @@ class Router
         // TODO 4: Lee $_GET['c'], si no existe usa 'home' como valor por defecto.
         //         Construye el nombre de la clase: ucfirst($nombre) . 'Controller'
         //         Ejemplo: 'libro' → 'LibroController'
-        $nombre=$_GET['c'] ?? 'home';
-        $clase =ucfirst($nombre) . 'Controller';
+        $nombre= $_GET['c'] ?? 'home';
+        $clase = ucfirst($nombre).'Controller';
 
         // TODO 5: Lee $_GET['a'], si no existe usa 'index' como valor por defecto.
         //         Limpia el valor con: preg_replace('/[^a-zA-Z0-9_]/', '', $valor)
@@ -24,22 +24,23 @@ class Router
 
         // TODO 6: Construye la ruta al archivo del controller usando __DIR__
         //         Está en: ../controllers/{$clase}.php
-        $archivo = __DIR__."../controllers/{$clase}.php";
+        $archivo = __DIR__ . "/../controllers/{$clase}.php";
 
         // TODO 7: Si el archivo NO existe, usa 'HomeController' y acción 'notFound'
         //         Actualiza $clase, $accion y $archivo
+        
         if (!file_exists($archivo)) {
             $clase='HomeController';
             $accion='notFound';
-            $archivo = __DIR__."../controllers/HomeController.php";
+            $archivo = __DIR__ ."/../controllers/HomeController.php";
         }
 
         // TODO 8: Carga el archivo del controller con require_once
-        require_once "$archivo";
+        require_once $archivo;
 
         // TODO 9: Crea una instancia de la clase ($clase) y llama al método ($accion)
         //         Pista: $obj = new $clase(); luego $obj->$accion();
-        $objeto= new $clase();
-        $objeto-> $accion();
+        $obj= new $clase();
+        $obj-> $accion();
     }
 }

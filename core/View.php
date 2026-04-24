@@ -21,9 +21,9 @@ class View
     {
         // TODO 10: tu código aquí
         extract($datos);
-        require_once __DIR__."views/layout/header.php";
-        require_once __DIR__."views/{$vista}.php";
-        require_once __DIR__."views/layout/footer.php";
+        require_once __DIR__ . "/../views/layout/header.php";
+        require_once __DIR__ . "/../views/{$vista}.php";
+        require_once __DIR__ . "/../views/layout/footer.php";
         
     }
 

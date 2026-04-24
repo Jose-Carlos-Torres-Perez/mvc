@@ -12,7 +12,7 @@ class HomeController
     //   - Pasa al menos: 'titulo' => 'Bienvenido a LibroStore'
     public function index(): void
     {
-        // tu código aquí
+       View::render('home/index', ['titulo' => 'Bienvenido a LibroStore']);
     }
 
     // TODO 17: Implementa notFound().
@@ -20,6 +20,7 @@ class HomeController
     //   - Llama a View::render('home/404', ['titulo' => 'Página no encontrada'])
     public function notFound(): void
     {
-        // tu código aquí
+        http_response_code(404);
+        View::render('home/404', ['titulo' => 'Página no encontrada']);
     }
 }

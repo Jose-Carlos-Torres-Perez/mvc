@@ -20,7 +20,7 @@
     <div class="container">
         <!-- TODO 23: Muestra el emoji 📚 y el nombre "LibroStore" como brand -->
         <a class="navbar-brand fw-bold" href="index.php">
-            ???
+            📚LibroStore
         </a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
@@ -28,7 +28,7 @@
                     <a class="nav-link" href="index.php">Inicio</a>
                 </li>
                 <!-- TODO 24: Agrega un enlace "Catálogo" que apunte a ?c=libro&a=index -->
-                ???
+                <a class="nav-bar" href="?c=libro&a=index"> ver catalogo</a>
             </ul>
         </div>
     </div>

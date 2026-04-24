@@ -104,7 +104,7 @@ class Libro
     {
         
             $valor =array_filter(self ::$catalogo, function ($libro)  use ($genero){
-                return $libro['genero'===$genero];
+                return $libro['genero']=== $genero;
             }
             
             );
