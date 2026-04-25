@@ -16,9 +16,18 @@
        (activo con btn-success si $generoActivo === $genero)
      Pista: usa urlencode($g) en el href -->
 <div class="mb-4 d-flex gap-2 flex-wrap">
-    <!-- TODO 29: tus botones de filtro aquí -->
-     <a href="?c=libro&a=index"><button>Todos</button></a>
-     <a href="??c=libro&a=genero&g={género}"><button>Generos</button></a>
+    <!-- Botón Todos -->
+    <a href="?c=libro&a=index" class="btn <?= empty($generoActivo) ? 'btn-dark' : 'btn-outline-dark' ?>">
+        Todos
+    </a>
+
+    <!-- Botones por género -->
+    <?php foreach ($generos as $g): ?>
+        <a href="?c=libro&a=genero&g=<?= urlencode($g) ?>"
+           class="btn <?= $generoActivo === $g ? 'btn-success' : 'btn-outline-success' ?>">
+            <?= e($g) ?>
+        </a>
+    <?php endforeach; ?>
 </div>
 
 <!-- TODO 30: Si $libros está vacío, muestra un mensaje de alerta.
@@ -38,7 +47,40 @@
 <div class="row g-4">
     <?php foreach ($libros as $libro): ?>
     <div class="col-sm-6 col-lg-4">
-        <!-- TODO 30: tu tarjeta aquí -->
+        
+    <!-- Borde superior con color -->
+    <div style="height: 5px; background-color: <?= e($libro['color']) ?>"></div>
+
+    <div class="card-body">
+        <!-- Icono -->
+        <div class="mb-2 text-center">
+            <i class="fas fa-book fa-2x"></i>
+        </div>
+
+        <!-- Género -->
+        <span class="badge bg-secondary mb-2"><?= e($libro['genero']) ?></span>
+
+        <!-- Título -->
+        <h5 class="card-title"><?= e($libro['titulo']) ?></h5>
+
+        <!-- Autor -->
+        <p class="card-text mb-1"><strong>Autor:</strong> <?= e($libro['autor']) ?></p>
+
+        <!-- Año -->
+        <p class="card-text mb-1"><strong>Año:</strong> <?= e($libro['anio']) ?></p>
+
+        <!-- Precio -->
+        <p class="card-text fw-bold">
+            <?= e(Libro::formatearPrecio($libro['precio'])) ?>
+        </p>
+    </div>
+
+    <div class="card-footer text-center">
+        <a href="?c=libro&a=show&id=<?= e($libro['id']) ?>" class="btn btn-primary">
+            Ver detalle
+        </a>
+    </div>
+</div>
     </div>
     <?php endforeach; ?>
 </div>
